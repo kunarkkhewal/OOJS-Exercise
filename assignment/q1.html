@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Question 1</title>
+</head>
+<body>
+
+    <div id="dev">
+
+    </div>
+
+    <script>
+        function Person(name,age,country){
+            this.name = name;
+            this.age = age;
+            this.country = country;
+            this.isCitizen = function isCitizen(){
+                return true;
+            }
+        }
+
+        function Employee(empId, designation){
+            this.empId = empId;
+            this.designation = designation;
+            this.isEmployee = function isEmployee(){
+                return true;
+            }
+        }
+
+        function Developer(competancy){
+            this.competancy = competancy;
+            this.isInsane = function isInsane(){
+                return false;
+            }
+        }
+
+        Employee.prototype = new Person("Kunark",22,"india");
+        Employee.constructor = Employee;
+
+        Developer.prototype = new Employee(3288,"trainee");
+        Developer.constructor = Developer;
+
+        var dev = new Developer("Mean");
+
+
+        var str = "Name : " + dev.name + "<br>Age : " + dev.age + "<br>Country : " + dev.country + "<br>Is Citizen : " +
+                    dev.isCitizen();
+        str += "<br><br>Employee Code : " + dev.empId + "<br>Designation : " + dev.designation + "<br>Is Employee? : " + dev.isEmployee();
+        str += "<br><br>Competency : " + dev.competancy + "<br>Is Insane? : " + dev.isInsane();
+
+        document.getElementById("dev").innerHTML = str;
+
+        var ob = new Developer();
+
+        console.log(dev.name);
+        console.log(dev.age);
+        console.log(dev.country);
+        console.log(dev.empId);
+        console.log(dev.designation);
+        console.log(dev.competancy);
+        console.log(dev.isCitizen());
+        console.log(dev.isEmployee());
+        console.log(dev.isInsane());
+    </script>
+</body>
+</html>

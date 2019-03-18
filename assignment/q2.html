@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Question 2</title>
+
+    <style>
+        div{
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">given array was [1,2,3,4,5] and every element of array will print after 3sec to previous</div>
+
+    <script>
+        var array = [1, 2, 3, 4, 5];
+        for (var i = 0; i < array.length; i++) {
+            (function(){
+                var j =i;
+                setTimeout(function(){
+                    console.log(j)
+                    document.querySelector("#div").innerText += "\n"+array[j];
+                },i*3000)
+            })();
+        }
+        
+    </script>
+</body>
+
+</html>

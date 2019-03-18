@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Question 5</title>
+</head>
+<body>
+    <div>  open console and try <b>"fxn()"</b> for function invokation and <b>"new fxn()"</b> for function instantiation  </div>
+    <script>
+        var counterInvocation = 0;
+        var counterInstantiation = 0;
+        function fxn(){
+            console.log("fxn has been called!!!");
+            
+            if(this instanceof Window){
+                counterInvocation++;
+                document.querySelector("div").innerText += "\nFunction invoked : "+counterInvocation;
+            }
+            if(this instanceof fxn){
+                counterInstantiation++;
+                document.querySelector("div").innerText += "\nFunction instantiated : "+counterInstantiation;
+            }
+        }
+    </script>
+</body>
+</html>
